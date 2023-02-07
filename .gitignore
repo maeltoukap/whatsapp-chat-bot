@@ -1,0 +1,3 @@
+*.ipynb
+*.env/
+*nltk_data/

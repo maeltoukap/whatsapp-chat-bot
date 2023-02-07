@@ -66,19 +66,23 @@ training = np.array(training, dtype=object)
 
 train_x = list(training[:, 0])
 train_y = list(training[:, 1])
+
+train_x = np.expand_dims(train_x, axis=1)
+train_y = np.expand_dims(train_y, axis=1)
+
 train_x = tf.expand_dims(train_x, axis=0)
 train_y = tf.expand_dims(train_y, axis=0)
 
 print(len(train_x))
 model = Sequential()
 # model.add(Dense(128, input_shape=113, activation='relu'))
-model.add(Dense(128, input_shape=(113, 143), activation='relu'))
+model.add(Dense(128, input_shape=train_x[0].shape, activation='relu'))
 # model.add(Dense(128, input_shape=(len(train_x[0])), activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(54, activation='relu'))
 model.add(Dropout(0.5))
 # model.add(Dense(113, activation='softmax'))
-model.add(Dense(len(train_y[0]), activation='softmax'))
+model.add(Dense(30, activation='softmax'))
 
 
 sgd =  SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
@@ -86,7 +90,9 @@ model.compile(optimizer=sgd, loss='categorical_crossentropy', metrics=['accuracy
 
 
 
-hist = model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=1)
+hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
+# ev = model.evaluate(np.array(train_x), np.array(train_y), verbose=1)
 
+# print(ev)
 model.save("chatbotmodel.h5", hist)
 print("done")

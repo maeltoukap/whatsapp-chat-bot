@@ -119,6 +119,7 @@ class WhatsAppWrapper:
                     }
                 )
                 for message in change["value"]["messages"]:
+                    print(change["value"])
                     # random_sleeper = random.randint(0, 30)
                     # time.sleep(random_sleeper)
                     message_id = message["id"]

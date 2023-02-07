@@ -126,5 +126,6 @@ class WhatsAppWrapper:
                     self.mark_message_as_read(message_id=message_id)
                     # self.send_message(self, message, response["from"])
                     print(message["text"]["body"])
+                    print(message["contacts"]["wa_id"])
                     # Do whatever with the response
         return response

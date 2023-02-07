@@ -30,7 +30,7 @@ import json
 
 import time
 import random
-from chat_bot import chatbot_response
+# from chat_bot import chatbot_response
 
 
 class WhatsAppWrapper:
@@ -69,14 +69,14 @@ class WhatsAppWrapper:
     def send_message(self, message, phone_number):
         print(message)
         print(phone_number)
-        bot_response = chatbot_response(message)
+        # bot_response = chatbot_response(message)
         payload = json.dumps({
             "messaging_product": "whatsapp",
             "to": phone_number,
             "type": "text",
             "text": {
                 "preview_url": False,
-                "body": bot_response
+                "body": message
             }
         })
 
@@ -123,7 +123,7 @@ class WhatsAppWrapper:
                     # time.sleep(random_sleeper)
                     message_id = message["id"]
                     self.mark_message_as_read(message_id=message_id)
-                    self.send_message(self, message, response["from"])
+                    # self.send_message(self, message, response["from"])
                     print(message["text"]["body"])
                     # Do whatever with the response
         return response

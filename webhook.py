@@ -28,8 +28,8 @@ import requests
 
 import json
 
-import time
-import random
+# import time
+# import random
 # from chat_bot import chatbot_response
 
 

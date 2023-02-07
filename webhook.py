@@ -30,7 +30,7 @@ import json
 
 import time
 import random
-from chat_gpt_bot import chatbot_response
+from chat_bot import chatbot_response
 
 
 class WhatsAppWrapper:

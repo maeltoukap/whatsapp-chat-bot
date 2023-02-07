@@ -131,7 +131,8 @@
                 "what are you"
             ],
             "responses": [
-                "I am Ted, a Deep-Learning chatbot"
+                "I am Ted, a Deep-Learning chatbot",
+                "I am Ted"
             ]
         },
         {
@@ -236,23 +237,23 @@
             "patterns": [
                 "who is he",
                 "who is that",
-                "who is karan",
-                "karan malik"
+                "who is mael",
+                "mael toukap"
             ],
             "responses": [
-                "Head over to his any of his social profiles to find out! Linkedin: www.linkedin.com/in/karan-malik-3a39191a7 Github: https://github.com/Karan-Malik"
+                "Head over to his any of his social profiles to find out! Linkedin: https://www.linkedin.com/in/mael-toukap-4577041a4/ Github: https://github.com/maeltoukap"
             ]
         },
         {
             "tag": "contact",
             "patterns": [
                 "contact developer",
-                "contact karan",
+                "contact mael",
                 "contact programmer",
                 "contact creator"
             ],
             "responses": [
-                "You can contact my creator at his Linkedin profile : www.linkedin.com/in/karan-malik-3a39191a7"
+                "You can contact my creator at his Linkedin profile : https://www.linkedin.com/in/mael-toukap-4577041a4/"
             ]
         },
         {
@@ -292,7 +293,7 @@
             "patterns": [
                 "news",
                 "latest news",
-                "india news"
+                "Cameroon news"
             ],
             "responses": [
                 "..."
@@ -306,7 +307,7 @@
                 "who motivates you"
             ],
             "responses": [
-                "Personally, I find Karan very inspiring. I might not be very fair though.."
+                "Personally, I find Mael very inspiring. I might not be very fair though.."
             ]
         },
         {
@@ -398,7 +399,7 @@
                 "how old are you","when were you made","what is your age"
             ],
             "responses": [
-                "I was made in 2020, if that's what you are asking!"
+                "I was made in 2023, if that's what you are asking!"
             ]
         }
     ]

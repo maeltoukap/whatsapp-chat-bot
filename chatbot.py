@@ -43,22 +43,35 @@ def bag_of_words(sentence):
 def predict_class(sentence):
     bow = bag_of_words(sentence)
     print(np.array(bow).shape)
-    res = model.predict(np.array(bow))[0]
-    ERROR_THRESHOLD = 0.25
-    result = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
     
+    # bow = np.expand_dims(bow, axis=0)
+    # bow = np.expand_dims(bow, axis=1)
+    # res = model.predict(np.array(bow))[0]
+    model_input = np.expand_dims(np.array(bow), axis=0)
+    model_input = np.expand_dims(model_input, axis=1)
+    res = model.predict(model_input)[0]
+    ERROR_THRESHOLD = 0.25
+    result = [[i, r] for i, r in enumerate(res) if r.all() > ERROR_THRESHOLD]
+    
+    print(enumerate(res))
+    for i, r in enumerate(res):
+        if r.all() > ERROR_THRESHOLD:
+            print(i)
+            print(r)
     result.sort(key=lambda x: x[1], reverse=True)
+    # print(result)
     return_list = []
     for r in result:
         return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})
     return return_list
 
 def get_response(intent_list, intents_json):
-    tag = intent_list[0]['intents']
+    # print(intent_list[0])
+    tag = intent_list[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if i['tag'] == tag:
-            result = random.choice(i['response'])
+            result = random.choice(i['responses'])
             break
     return result
 
@@ -66,6 +79,7 @@ print("Bot is running")
 
 while True:
     message = input("")
+    print(message)
     ints = predict_class(message)
     res = get_response(intent_list=ints, intents_json=intents)
     print(res)

@@ -70,8 +70,8 @@ train_y = list(training[:, 1])
 train_x = np.expand_dims(train_x, axis=1)
 train_y = np.expand_dims(train_y, axis=1)
 
-train_x = tf.expand_dims(train_x, axis=0)
-train_y = tf.expand_dims(train_y, axis=0)
+# train_x = tf.expand_dims(train_x, axis=0)
+# train_y = tf.expand_dims(train_y, axis=0)
 
 print(len(train_x))
 model = Sequential()

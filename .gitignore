@@ -1,0 +1,4 @@
+*.ipynb
+*.env/
+*nltk_data/
+.vscode/

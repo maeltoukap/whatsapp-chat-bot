@@ -108,7 +108,7 @@ class WhatsAppWrapper:
             "message": message
         })
         response = requests.request(
-            "GET", f"{self.BOT_URL}/messages", headers=self.headers, data=payload)
+            "GET", f"{self.BOT_URL}/get_response", headers=self.headers, data=payload)
 
         assert response.status_code == 201, "Error sending message"
         return response
@@ -133,7 +133,7 @@ class WhatsAppWrapper:
                     }
                 )
                 for message in change["value"]["messages"]:
-                    print(change["value"])
+                    # print(change["value"])
                     # random_sleeper = random.randint(0, 30)
                     # time.sleep(random_sleeper)
                     message_id = message["id"]
@@ -142,11 +142,12 @@ class WhatsAppWrapper:
                     sended_message = message["text"]["body"]
                     print(sended_message)
                     res = self.ask_response_to_the_bot(self, message=sended_message)
-                    if res.status_code == 201:
+                    if True:
                         received_message = res.content
-                        self.send_message(received_message, response["from"])
-                    else:
-                        self.send_message("An error occured", response["from"])
-                    print(message["contacts"]["wa_id"])
+                        print(received_message)
+                        self.send_message(received_message, "237698509488")
+                    # else:
+                    #     self.send_message("An error occured", response["from"])
+                    # print(message["contacts"]["wa_id"])
                     # Do whatever with the response
         return response

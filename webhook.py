@@ -135,6 +135,7 @@ class WhatsAppWrapper:
                         "from": change["value"]["metadata"]["display_phone_number"],
                     }
                 )
+                print(change["value"]["messages"][0])
                 # for message in change["value"]["messages"]:
                     # print(change["value"])
                     # random_sleeper = random.randint(0, 30)

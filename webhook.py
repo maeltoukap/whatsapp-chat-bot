@@ -36,6 +36,7 @@ import json
 class WhatsAppWrapper:
 
     API_URL = "https://graph.facebook.com/v13.0/"
+    BOT_URL = "https://chat-bot-responder-ox6yxlojcq-tl.a.run.app/"
     API_TOKEN = os.environ.get("WHATSAPP_API_TOKEN")
     NUMBER_ID = os.environ.get("WHATSAPP_NUMBER_ID")
 
@@ -100,6 +101,19 @@ class WhatsAppWrapper:
         assert response.status_code == 200, "Error sending message"
         return response.status_code
     
+    
+    def ask_response_to_the_bot(self, message):
+        
+        payload = json.dumps({
+            "message": message
+        })
+        response = requests.request(
+            "GET", f"{self.BOT_URL}/messages", headers=self.headers, data=payload)
+
+        assert response.status_code == 201, "Error sending message"
+        return response
+    
+    
 
     def process_webhook_notification(self, data):
         """_summary_: Process webhook notification
@@ -125,7 +139,14 @@ class WhatsAppWrapper:
                     message_id = message["id"]
                     self.mark_message_as_read(message_id=message_id)
                     # self.send_message(self, message, response["from"])
-                    print(message["text"]["body"])
+                    sended_message = message["text"]["body"]
+                    print(sended_message)
+                    res = self.ask_response_to_the_bot(self, message=sended_message)
+                    if res.status_code == 201:
+                        received_message = res.content
+                        self.send_message(received_message, response["from"])
+                    else:
+                        self.send_message("An error occured", response["from"])
                     print(message["contacts"]["wa_id"])
                     # Do whatever with the response
         return response

@@ -135,20 +135,21 @@ class WhatsAppWrapper:
                         "from": change["value"]["metadata"]["display_phone_number"],
                     }
                 )
-                for message in change["value"]["messages"]:
+                # for message in change["value"]["messages"]:
                     # print(change["value"])
                     # random_sleeper = random.randint(0, 30)
                     # time.sleep(random_sleeper)
-                    message_id = message["id"]
-                    self.mark_message_as_read(message_id=message_id)
+                    # message_id = message["id"]
+                    # self.mark_message_as_read(message_id=message_id)
                     # self.send_message(self, message, response["from"])
-                    sended_message = message["text"]["body"]
-                    print(sended_message)
-                    res = self.ask_response_to_the_bot(self, message=sended_message)
-                    if True:
-                        received_message = res.content
-                        print(received_message)
-                        self.send_message("received_message", "237698509488")
+                    # sended_message = message["text"]["body"]
+                    # print(sended_message)
+                res = self.ask_response_to_the_bot(self, message="Hi")
+                print(res)
+                    # if True:
+                    #     received_message = res.content
+                    #     print(received_message)
+                    #     self.send_message("received_message", "237698509488")
                     # else:
                     #     self.send_message("An error occured", response["from"])
                     # print(message["contacts"]["wa_id"])

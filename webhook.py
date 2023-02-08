@@ -138,8 +138,13 @@ class WhatsAppWrapper:
                 for message in change["value"]["messages"]:
                     sended_message = message["text"]["body"]
                     print(sended_message)
-                    res = self.ask_response_to_the_bot(message=sended_message)
-                    print(res.text)
+                    try:
+                        res = self.ask_response_to_the_bot(message=sended_message)
+                        bot_response = res.text
+                        print(bot_response)
+                        self.send_message(message=bot_response, phone_number="237698509488")
+                    except Exception as err:
+                        self.send_message(message="An Error Occurred", phone_number="237698509488")
                     # print(change["value"])
                     # random_sleeper = random.randint(0, 30)
                     # time.sleep(random_sleeper)

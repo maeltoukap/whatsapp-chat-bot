@@ -138,8 +138,8 @@ class WhatsAppWrapper:
                 for message in change["value"]["messages"]:
                     sended_message = message["text"]["body"]
                     print(sended_message)
-                    res = self.ask_response_to_the_bot(message="Hi")
-                    print(res.content)
+                    res = self.ask_response_to_the_bot(message=sended_message)
+                    print(res.text)
                     # print(change["value"])
                     # random_sleeper = random.randint(0, 30)
                     # time.sleep(random_sleeper)

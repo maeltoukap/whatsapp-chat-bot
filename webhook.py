@@ -104,6 +104,8 @@ class WhatsAppWrapper:
     
     def ask_response_to_the_bot(self, message):
         
+        print(message)
+        
         payload = json.dumps({
             "message": message
         })

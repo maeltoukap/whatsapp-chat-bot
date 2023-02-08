@@ -36,7 +36,7 @@ import json
 class WhatsAppWrapper:
 
     API_URL = "https://graph.facebook.com/v13.0/"
-    BOT_URL = "https://chat-bot-responder-ox6yxlojcq-tl.a.run.app/"
+    BOT_URL = "https://chat-bot-responder-ox6yxlojcq-tl.a.run.app/get_response"
     API_TOKEN = os.environ.get("WHATSAPP_API_TOKEN")
     NUMBER_ID = os.environ.get("WHATSAPP_NUMBER_ID")
 
@@ -103,16 +103,17 @@ class WhatsAppWrapper:
     
     
     def ask_response_to_the_bot(self, message):
-        
-        print(message)
-        
+
         payload = json.dumps({
             "message": message
         })
-        response = requests.request(
-            "GET", f"{self.BOT_URL}/get_response", headers=self.headers, data=payload)
+        headers = {
+        'Content-Type': 'application/json'
+        }
 
-        assert response.status_code == 201, "Error sending message"
+        response = requests.request("POST", self.BOT_URL, headers=headers, data=payload)
+
+        assert response.status_code == 200, "Error sending message"
         return response
     
     

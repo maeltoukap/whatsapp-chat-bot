@@ -144,8 +144,8 @@ class WhatsAppWrapper:
                     # self.send_message(self, message, response["from"])
                     # sended_message = message["text"]["body"]
                     # print(sended_message)
-                res = self.ask_response_to_the_bot(self, message="Hi")
-                print(res)
+                # res = self.ask_response_to_the_bot(self, message="Hi")
+                # print(res)
                     # if True:
                     #     received_message = res.content
                     #     print(received_message)

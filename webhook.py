@@ -145,7 +145,7 @@ class WhatsAppWrapper:
                     if True:
                         received_message = res.content
                         print(received_message)
-                        self.send_message(received_message, "237698509488")
+                        self.send_message("received_message", "237698509488")
                     # else:
                     #     self.send_message("An error occured", response["from"])
                     # print(message["contacts"]["wa_id"])

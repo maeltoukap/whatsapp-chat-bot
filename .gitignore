@@ -1,4 +1,4 @@
 *.ipynb
 *.env/
-*nltk_data/
+nltk_data/
 .vscode/

@@ -7,6 +7,7 @@ from nltk.stem import WordNetLemmatizer
 from flask import Flask, request
 nltk.data.path.append('nltk_data/')
 # nltk.download('wordnet')
+# nltk.download('punkt')
 
 
 app = Flask(__name__)

@@ -1,10 +1,16 @@
+import os
 import nltk
 import numpy as np
 import random
 import json
 from nltk.stem import WordNetLemmatizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
+from flask import Flask, request
 nltk.data.path.append('nltk_data/')
+# nltk.download('wordnet')
+
+
+app = Flask(__name__)
+
 
 import tensorflow as tf
 
@@ -91,10 +97,10 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 model.fit(np.array(train_x), np.array(train_y), epochs=100, batch_size=8, verbose=1)
 
 # Sauvegarder le modèle
-model.save("model.h5")
+model.save("model/model.h5")
 
 # Charger le modèle
-model = tf.keras.models.load_model("model.h5")
+model = tf.keras.models.load_model("model/model.h5")
 
 def bow(sentence, words, show_details=True):
     stemmer = nltk.PorterStemmer()
@@ -141,15 +147,32 @@ def chatbot_response(text):
     return res
 
 
-while True:
-    message = input("")
-    print(message)
-    # ints = predict_class(message, model=model)
-    res = chatbot_response(message)
-    print(res)
-# def initBot():
+# while True:
 #     message = input("")
 #     print(message)
-#     ints = predict_class(message, model=model)
+#     # ints = predict_class(message, model=model)
 #     res = chatbot_response(message)
 #     print(res)
+
+@app.route("/get_response", methods=["POST"])
+def initBot():
+    message = request.json["message"],
+    # message = input("")
+    mes = message[0]
+    print(message)
+    # ints = predict_class(message, model=model)
+    res = chatbot_response(mes)
+    print(res)
+    
+    # payload = json.dumps({
+    #     "message": "whatsapp",
+    #     "phone_number": "237698509488"
+    # })
+
+    # response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
+    return res
+
+
+port = int(os.environ.get('PORT', 8080))
+if __name__ == '__main__':
+    app.run(threaded=True, host='0.0.0.0', port=port)

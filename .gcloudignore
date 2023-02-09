@@ -1,0 +1,8 @@
+.env/
+.git/
+*.ipynb
+configs.txt
+telegram_bot.py
+bloc_chain.py
+ebooking-keys.json
+im_recon.py

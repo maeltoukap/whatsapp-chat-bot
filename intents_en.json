@@ -1,6 +1,5 @@
 {
     "intents": [
-
         {
             "tag": "google",
             "patterns": [
@@ -99,7 +98,6 @@
                 ""
             ]
         },
-        
         {
             "tag": "jokes",
             "patterns": [
@@ -142,7 +140,9 @@
                 "what is the date",
                 "date",
                 "time",
-                "tell me the date","day","what day is is today"
+                "tell me the date",
+                "day",
+                "what day is is today"
             ],
             "responses": [
                 "Date and Time"
@@ -154,7 +154,8 @@
                 "Whats up",
                 "Wazzup",
                 "How are you",
-                "sup","How you doing"
+                "sup",
+                "How you doing"
             ],
             "responses": [
                 "All good..What about you?"
@@ -187,9 +188,7 @@
         {
             "tag": "insult",
             "patterns": [
-                
                 "you are dumb",
-                
                 "shut up",
                 "idiot"
             ],
@@ -220,7 +219,6 @@
                 "Yeah!"
             ]
         },
-        
         {
             "tag": "weather",
             "patterns": [
@@ -339,7 +337,8 @@
                 "i am good",
                 "I'm good",
                 "i am fine",
-                " i'm fine","good"
+                " i'm fine",
+                "good"
             ],
             "responses": [
                 "Good to know!"
@@ -366,13 +365,18 @@
         {
             "tag": "suggest",
             "patterns": [
-                "you are useless","useless","suggest","suggestions","you are bad"
+                "you are useless",
+                "useless",
+                "suggest",
+                "suggestions",
+                "you are bad"
             ],
             "responses": [
                 "Please mail your suggestions to ted.thedlbot.suggestions@gmail.com. Thank you for helping me improve!"
             ]
         },
-            {"tag": "riddle",
+        {
+            "tag": "riddle",
             "patterns": [
                 "Ask me a riddle",
                 "Ask me a question",
@@ -396,10 +400,78 @@
         {
             "tag": "age",
             "patterns": [
-                "how old are you","when were you made","what is your age"
+                "how old are you",
+                "when were you made",
+                "what is your age"
             ],
             "responses": [
                 "I was made in 2023, if that's what you are asking!"
+            ]
+        },
+        {
+            "tag": "interest_rates",
+            "patterns": [
+                "What are interest rates?",
+                "How do interest rates affect the economy?",
+                "What is the impact of interest rates on borrowing?"
+            ],
+            "responses": [
+                "Interest rates are the costs of borrowing money or the returns on saving money. They play a crucial role in the economy as they can impact borrowing, spending, saving, and investment decisions. When interest rates increase, it becomes more expensive to borrow money, which can lead to a decrease in spending and investment. On the other hand, when interest rates decrease, it becomes cheaper to borrow money, which can lead to an increase in spending and investment."
+            ]
+        },
+        {
+            "tag": "budget_deficit",
+            "patterns": [
+                "What is a budget deficit?",
+                "What causes a budget deficit?",
+                "What are the consequences of a budget deficit?"
+            ],
+            "responses": [
+                "A budget deficit occurs when a government spends more money than it takes in through revenue. This can be caused by a number of factors such as an increase in government spending, a decrease in government revenue, or a combination of both. Consequences of a budget deficit can include an increase in government debt, a decrease in spending on public services, and an increase in inflation."
+            ]
+        },
+        {
+            "tag": "trade_deficit",
+            "patterns": [
+                "What is a trade deficit?",
+                "What causes a trade deficit?",
+                "What are the consequences of a trade deficit?"
+            ],
+            "responses": [
+                "A trade deficit occurs when a country imports more goods and services than it exports. This can be caused by a number of factors such as a decrease in the competitiveness of a country's exports, an increase in the demand for foreign goods, or a decrease in the demand for domestic goods. Consequences of a trade deficit can include a decrease in economic growth, a decrease in employment, and a decrease in the standard of living."
+            ]
+        },
+        {
+            "tag": "gdp",
+            "patterns": [
+                "What is GDP?",
+                "What does GDP stand for?",
+                "What is the meaning of GDP?"
+            ],
+            "responses": [
+                "GDP stands for Gross Domestic Product, which is the value of all goods and services produced in a country over a given period of time."
+            ]
+        },
+        {
+            "tag": "inflation",
+            "patterns": [
+                "What is inflation?",
+                "What causes inflation?",
+                "How does inflation affect the economy?"
+            ],
+            "responses": [
+                "Inflation is an increase in the general level of prices for goods and services in an economy over a period of time. It can be caused by a number of factors such as an increase in demand for goods and services, a decrease in the supply of money, or an increase in the cost of production."
+            ]
+        },
+        {
+            "tag": "recession",
+            "patterns": [
+                "What is a recession?",
+                "What causes a recession?",
+                "What are the effects of a recession?"
+            ],
+            "responses": [
+                "A recession is a period of economic contraction, where there is a decrease in economic activity and output. This can be caused by a number of factors such as a decrease in consumer spending, a decrease in business investment, or a decrease in exports."
             ]
         }
     ]
